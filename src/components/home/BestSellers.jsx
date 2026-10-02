@@ -5,7 +5,6 @@ import Rating from '../Rating'
 import SectionTitle from '../SectionTitle'
 import Reveal from '../Reveal'
 import Button from '../Button'
-import { DiscountBadge } from '../ProductBadge'
 import { Icon } from '../Icons'
 import { useShop } from '../../context/ShopContext'
 import { formatPrice } from '../../utils/format'
@@ -48,13 +47,6 @@ export function BestSellers() {
               className="w-[17rem] shrink-0 snap-start sm:w-[18rem]"
             >
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900 p-4 transition duration-300 hover:-translate-y-1 hover:border-white/20">
-                <div className="flex items-start justify-between gap-3">
-                  {/* <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500 font-display text-sm font-extrabold text-ink-950">
-                    #{index + 1}
-                  </span> */}
-                  <DiscountBadge percent={product.discount} />
-                </div>
-
                 <Link
                   to={`/product/${product.id}`}
                   className="mt-4 overflow-hidden rounded-xl bg-white"

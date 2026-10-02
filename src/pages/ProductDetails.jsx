@@ -16,7 +16,7 @@ import ProductImage from '../components/ProductImage'
 import QuantitySelector from '../components/QuantitySelector'
 import Rating from '../components/Rating'
 import SectionTitle from '../components/SectionTitle'
-import { DiscountBadge, ProductBadge } from '../components/ProductBadge'
+import { ProductBadge } from '../components/ProductBadge'
 import { Icon, StarIcon } from '../components/Icons'
 
 const TABS = [
@@ -116,7 +116,6 @@ export function ProductDetails() {
 
               <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
                 <ProductBadge label={product.badge} />
-                <DiscountBadge percent={product.discount} />
               </div>
 
               <button
@@ -210,7 +209,6 @@ export function ProductDetails() {
                   <span className="text-lg text-ink-400 line-through">
                     {formatPrice(product.originalPrice)}
                   </span>
-                  <DiscountBadge percent={product.discount} className="self-center" />
                   <span className="text-[0.82rem] font-semibold text-brand-700">
                     You save {formatPrice(product.savings)}
                   </span>

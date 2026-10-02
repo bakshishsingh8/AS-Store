@@ -4,7 +4,7 @@ import { storeStats } from '../../data/testimonials'
 import { Icon } from '../Icons'
 import Button from '../Button'
 import ProductImage from '../ProductImage'
-import { DiscountBadge, ProductBadge } from '../ProductBadge'
+import { ProductBadge } from '../ProductBadge'
 import { formatPrice } from '../../utils/format'
 
 const TRUST_POINTS = [
@@ -107,7 +107,6 @@ export function Hero() {
               />
               <div className="absolute left-4 top-4 flex flex-col items-start gap-2">
                 <ProductBadge label={flagship.badge} />
-                <DiscountBadge percent={flagship.discount} />
               </div>
             </div>
 

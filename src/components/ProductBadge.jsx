@@ -21,18 +21,4 @@ export function ProductBadge({ label, className = '' }) {
   )
 }
 
-/** "-31%" style discount flag. */
-export function DiscountBadge({ percent, className = '' }) {
-  const value = Math.round(Number(percent) || 0)
-  if (value <= 0) return null
-
-  return (
-    <span
-      className={`inline-flex items-center rounded-full bg-rose-600 px-2.5 py-1 text-[0.66rem] font-bold tracking-wide text-white shadow-sm ${className}`}
-    >
-      -{value}%
-    </span>
-  )
-}
-
 export default ProductBadge

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import ProductImage from './ProductImage'
 import Rating from './Rating'
 import Button from './Button'
-import { DiscountBadge, ProductBadge } from './ProductBadge'
+import { ProductBadge } from './ProductBadge'
 import { Icon } from './Icons'
 import { useShop } from '../context/ShopContext'
 import { formatPrice } from '../utils/format'
@@ -41,7 +41,6 @@ export function ProductCard({ product, className = '', priority = false, tone = 
 
         <div className="pointer-events-none absolute left-3 top-3 flex flex-col items-start gap-1.5">
           <ProductBadge label={product.badge} />
-          <DiscountBadge percent={product.discount} />
         </div>
 
         <button

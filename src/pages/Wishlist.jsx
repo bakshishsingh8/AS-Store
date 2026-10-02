@@ -11,7 +11,6 @@ import ProductImage from '../components/ProductImage'
 import ProductGrid from '../components/ProductGrid'
 import Rating from '../components/Rating'
 import SectionTitle from '../components/SectionTitle'
-import { DiscountBadge } from '../components/ProductBadge'
 import { Icon } from '../components/Icons'
 
 /** Saved products with quick add-to-cart and remove actions. */
@@ -63,9 +62,6 @@ export function Wishlist() {
                     title={product.name}
                     className="h-full w-full"
                   />
-                  <span className="absolute left-2 top-2">
-                    <DiscountBadge percent={product.discount} />
-                  </span>
                 </Link>
 
                 <div className="flex min-w-0 flex-1 flex-col">
