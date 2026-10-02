@@ -14,7 +14,7 @@ const TRUST_ITEMS = [
 
 function BrandColumn() {
   return (
-    <div className="w-[15.5rem] shrink-0 sm:w-[17.5rem] lg:w-[20rem] lg:pr-8">
+    <div className="w-full sm:col-span-2 lg:col-span-1 xl:w-[20rem] xl:shrink-0 xl:pr-8">
       <Link to="/" className="flex items-center" aria-label="AS Store home">
         <span className="flex flex-col leading-none">
           <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-white">
@@ -79,14 +79,16 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main columns — address, Quick Links, Shop, Customer Support and
-          Opening Hours all sit on one horizontal row and never stack. */}
+      {/* Main columns — brand, Quick Links, Shop, Customer Support and opening
+          hours. They stack into a responsive grid on phones and tablets
+          (1 → 2 → 3 columns) and return to the original single horizontal row
+          on wide xl screens, where everything fits without scrolling. */}
       <div className="no-scrollbar overflow-x-auto">
-        <div className="container-page flex min-w-max items-start justify-between gap-8 py-12 lg:gap-10 lg:py-16">
+        <div className="container-page grid gap-x-8 gap-y-10 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-12 lg:py-16 xl:flex xl:min-w-max xl:items-start xl:justify-between xl:gap-10">
           <BrandColumn />
 
           {footerColumns.map((column) => (
-            <div key={column.title} className="w-[9.5rem] shrink-0">
+            <div key={column.title} className="w-full xl:w-[9.5rem] xl:shrink-0">
               <h3 className="font-display text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">
                 {column.title}
               </h3>
@@ -105,9 +107,9 @@ export function Footer() {
             </div>
           ))}
 
-          <div className="w-[13.5rem] shrink-0 sm:w-[15rem]">
+          <div className="w-full xl:w-[15rem] xl:shrink-0">
             <h3 className="font-display text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">
-              Contect Info
+              Contact Info
             </h3>
             <ul className="mt-4 space-y-2.5 text-[0.88rem]">
               <li className="flex items-start gap-2.5 text-white/70">

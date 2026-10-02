@@ -18,7 +18,16 @@ function navLinkClass({ isActive }) {
 }
 
 /** Icon button with an optional count bubble (cart, wishlist). */
-function IconButton({ name, label, to, onClick, count = 0, filled = false }) {
+function IconButton({
+  name,
+  label,
+  to,
+  onClick,
+  count = 0,
+  filled = false,
+  mobileHidden = false,
+  expanded,
+}) {
   const content = (
     <>
       <Icon name={name} size={20} filled={filled && count > 0} />
@@ -30,8 +39,9 @@ function IconButton({ name, label, to, onClick, count = 0, filled = false }) {
     </>
   )
 
-  const className =
-    'relative grid h-10 w-10 place-items-center rounded-full text-ink-700 transition duration-200 hover:bg-ink-100 hover:text-ink-950'
+  const className = `${
+    mobileHidden ? 'hidden sm:grid' : 'grid'
+  } relative h-11 w-11 place-items-center rounded-full text-ink-700 transition duration-200 hover:bg-ink-100 hover:text-ink-950`
 
   if (to) {
     return (
@@ -42,7 +52,14 @@ function IconButton({ name, label, to, onClick, count = 0, filled = false }) {
   }
 
   return (
-    <button type="button" onClick={onClick} aria-label={label} title={label} className={className}>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      title={label}
+      aria-expanded={expanded}
+      className={className}
+    >
       {content}
     </button>
   )
@@ -171,7 +188,7 @@ function MobileDrawer({ open, onClose }) {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-4 py-4">
+        <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-4">
           <form onSubmit={submitSearch} className="mb-4">
             <SearchBar
               value={query}
@@ -275,7 +292,7 @@ function MobileDrawer({ open, onClose }) {
           </div>
         </div>
 
-        <div className="border-t border-ink-100 p-4">
+        <div className="border-t border-ink-100 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
           <Button to="/login" onClick={onClose} fullWidth iconLeft={<Icon name="user" size={17} />}>
             Login / Sign Up
           </Button>
@@ -345,12 +362,12 @@ export function Navbar() {
             : 'border-ink-100'
         }`}
       >
-        <div className="container-page flex h-16 items-center gap-3 lg:h-[4.4rem]">
+        <div className="container-page flex h-16 items-center gap-2 sm:gap-3 lg:h-[4.4rem]">
           <button
             type="button"
             onClick={openMobileNav}
             aria-label="Open menu"
-            className="grid h-10 w-10 place-items-center rounded-full text-ink-800 transition hover:bg-ink-100 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full text-ink-800 transition hover:bg-ink-100 lg:hidden"
           >
             <Icon name="menu" size={22} />
           </button>
@@ -360,7 +377,7 @@ export function Navbar() {
               <span className="font-display text-[1.02rem] font-extrabold tracking-tight text-ink-950 lg:text-[1.12rem]">
                 AS STORE
               </span>
-              <span className="mt-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-brand-600">
+              <span className="mt-0.5 hidden text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-brand-600 sm:block">
                 Fuel your performance
               </span>
             </span>
@@ -370,15 +387,22 @@ export function Navbar() {
             <DesktopNav />
           </div>
 
-          <div className="ml-auto flex items-center gap-0.5 lg:ml-0">
+          <div className="ml-auto flex items-center gap-1 lg:ml-0 lg:gap-0.5">
             <IconButton
               name="search"
               label="Search products"
+              expanded={searchOpen}
               onClick={() => setSearchOpen((current) => !current)}
             />
-            <IconButton name="heart" label="Wishlist" to="/wishlist" count={wishlistCount} />
+            <IconButton
+              name="heart"
+              label="Wishlist"
+              to="/wishlist"
+              count={wishlistCount}
+              mobileHidden
+            />
             <IconButton name="cart" label="Open cart" onClick={openCart} count={cartCount} />
-            <IconButton name="user" label="Account" to="/login" />
+            <IconButton name="user" label="Account" to="/login" mobileHidden />
             <Button to="/shop" size="sm" className="ml-2 hidden xl:inline-flex">
               Shop All
             </Button>
@@ -386,21 +410,28 @@ export function Navbar() {
         </div>
 
         {searchOpen ? (
-          <div className="hidden border-t border-ink-100 bg-white/95 py-3 lg:block">
-            <div className="container-page max-w-2xl">
-              <SearchBar value={query} onChange={setQuery} onSubmit={submitSearch} autoFocus />
+          <>
+            <div className="hidden border-t border-ink-100 bg-white/95 py-3 lg:block">
+              <div className="container-page max-w-2xl">
+                <SearchBar value={query} onChange={setQuery} onSubmit={submitSearch} autoFocus />
+              </div>
             </div>
-          </div>
-        ) : null}
-      </div>
 
-      <div className="border-b border-ink-100 bg-white px-4 py-2.5 lg:hidden">
-        <SearchBar
-          value={query}
-          onChange={setQuery}
-          onSubmit={submitSearch}
-          placeholder="Search protein, creatine, shakers…"
-        />
+            {/* Mobile: the search icon drops this row open so the sticky header
+                stays short until the shopper actually wants to search. */}
+            <div className="animate-fade-in border-t border-ink-100 bg-white/95 py-2.5 lg:hidden">
+              <div className="container-page">
+                <SearchBar
+                  value={query}
+                  onChange={setQuery}
+                  onSubmit={submitSearch}
+                  autoFocus
+                  placeholder="Search protein, creatine, shakers…"
+                />
+              </div>
+            </div>
+          </>
+        ) : null}
       </div>
 
       <MobileDrawer open={mobileNavOpen} onClose={closeMobileNav} />
