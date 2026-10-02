@@ -14,8 +14,8 @@ export const site = {
   address: 'Unit 12, Ironworks Business Park, 240 Foundry Road, Springfield, IL 62704',
   hours: [
     { day: 'Monday – Friday', time: '8:00 – 20:00' },
-    { day: 'Saturday', time: '9:00 – 18:00' },
-    { day: 'Sunday', time: '10:00 – 16:00' },
+    // { day: 'Saturday', time: '9:00 – 18:00' },
+    // { day: 'Sunday', time: '10:00 – 16:00' },
   ],
 }
 

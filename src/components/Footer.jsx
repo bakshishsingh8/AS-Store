@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { footerColumns, paymentMethods, site, socialLinks } from '../data/site'
-import { Icon, LogoMark, SocialIcon } from './Icons'
+import { Icon, SocialIcon } from './Icons'
 import Newsletter from './Newsletter'
+import PaymentLogo from './PaymentLogo'
 import { storeStats } from '../data/testimonials'
 
 const TRUST_ITEMS = [
@@ -13,9 +14,8 @@ const TRUST_ITEMS = [
 
 function BrandColumn() {
   return (
-    <div className="lg:col-span-2 lg:pr-8">
-      <Link to="/" className="flex items-center gap-3" aria-label="AS Store home">
-        <LogoMark className="h-10 w-10" />
+    <div className="w-[15.5rem] shrink-0 sm:w-[17.5rem] lg:w-[20rem] lg:pr-8">
+      <Link to="/" className="flex items-center" aria-label="AS Store home">
         <span className="flex flex-col leading-none">
           <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-white">
             AS STORE
@@ -31,31 +31,6 @@ function BrandColumn() {
         and lab tested for purity. Everything you need to train harder and recover faster, at a fair
         price.
       </p>
-
-      <ul className="mt-6 space-y-3 text-[0.88rem]">
-        <li className="flex items-start gap-3 text-white/70">
-          <Icon name="pin" size={17} className="mt-0.5 shrink-0 text-brand-400" />
-          <span>{site.address}</span>
-        </li>
-        <li className="flex items-center gap-3">
-          <Icon name="phone" size={17} className="shrink-0 text-brand-400" />
-          <a
-            href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}
-            className="text-white/70 transition hover:text-white"
-          >
-            {site.phone}
-          </a>
-        </li>
-        <li className="flex items-center gap-3">
-          <Icon name="mail" size={17} className="shrink-0 text-brand-400" />
-          <a
-            href={`mailto:${site.email}`}
-            className="text-white/70 transition hover:text-white"
-          >
-            {site.email}
-          </a>
-        </li>
-      </ul>
 
       <div className="mt-6 flex items-center gap-2">
         {socialLinks.map((social) => (
@@ -88,8 +63,7 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="container-page grid gap-8 py-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-14">
           <div>
-            <span className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-400">
-              <span className="h-px w-6 bg-brand-400/60" />
+            <span className="inline-flex items-center text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-400">
               Stay in the loop
             </span>
             <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
@@ -105,42 +79,73 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main columns */}
-      <div className="container-page grid gap-10 py-12 lg:grid-cols-12 lg:gap-8 lg:py-16">
-        <BrandColumn />
+      {/* Main columns — address, Quick Links, Shop, Customer Support and
+          Opening Hours all sit on one horizontal row and never stack. */}
+      <div className="no-scrollbar overflow-x-auto">
+        <div className="container-page flex min-w-max items-start justify-between gap-8 py-12 lg:gap-10 lg:py-16">
+          <BrandColumn />
 
-        {footerColumns.map((column) => (
-          <div key={column.title} className="lg:col-span-2">
+          {footerColumns.map((column) => (
+            <div key={column.title} className="w-[9.5rem] shrink-0">
+              <h3 className="font-display text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">
+                {column.title}
+              </h3>
+              <ul className="mt-4 space-y-2.5">
+                {column.links.map((link) => (
+                  <li key={`${column.title}-${link.label}`}>
+                    <Link
+                      to={link.to}
+                      className="text-[0.88rem] text-white/60 transition hover:text-brand-300"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div className="w-[13.5rem] shrink-0 sm:w-[15rem]">
             <h3 className="font-display text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">
-              {column.title}
+              Contect Info
             </h3>
-            <ul className="mt-4 space-y-2.5">
-              {column.links.map((link) => (
-                <li key={`${column.title}-${link.label}`}>
-                  <Link
-                    to={link.to}
-                    className="text-[0.88rem] text-white/60 transition hover:text-brand-300"
-                  >
-                    {link.label}
-                  </Link>
+            <ul className="mt-4 space-y-2.5 text-[0.88rem]">
+              <li className="flex items-start gap-2.5 text-white/70">
+                <Icon name="pin" size={16} className="mt-0.5 shrink-0 text-brand-400" />
+                <span>{site.address}</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Icon name="phone" size={16} className="shrink-0 text-brand-400" />
+                <a
+                  href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}
+                  className="text-white/70 transition hover:text-white"
+                >
+                  {site.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Icon name="mail" size={16} className="shrink-0 text-brand-400" />
+                <a
+                  href={`mailto:${site.email}`}
+                  className="text-white/70 transition hover:text-white"
+                >
+                  {site.email}
+                </a>
+              </li>
+            </ul>
+
+            <ul className="mt-5 space-y-2.5 text-[0.88rem]">
+              {site.hours.map((entry) => (
+                <li key={entry.day} className="flex items-start gap-2.5 text-white/70">
+                  <Icon name="clock" size={16} className="mt-0.5 shrink-0 text-brand-400" />
+                  <span className="min-w-0">
+                    <span className="block text-white/80">{entry.day}</span>
+                    <span className="block text-[0.82rem]">{entry.time}</span>
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
-        ))}
-
-        <div className="lg:col-span-2">
-          <h3 className="font-display text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white">
-            Opening Hours
-          </h3>
-          <ul className="mt-4 space-y-2.5">
-            {site.hours.map((entry) => (
-              <li key={entry.day} className="text-[0.88rem] text-white/60">
-                <span className="block text-white/80">{entry.day}</span>
-                <span className="text-[0.82rem]">{entry.time}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
@@ -206,9 +211,10 @@ export function Footer() {
             {paymentMethods.map((method) => (
               <li
                 key={method}
-                className="rounded-md border border-white/12 bg-white/5 px-2.5 py-1 text-[0.68rem] font-semibold tracking-wide text-white/60"
+                className="flex h-7 items-center justify-center rounded-md bg-white px-3"
               >
-                {method}
+                <span className="sr-only">{method}</span>
+                <PaymentLogo name={method} />
               </li>
             ))}
           </ul>

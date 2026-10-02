@@ -27,11 +27,10 @@ export function SectionTitle({
       <div className={`flex max-w-2xl flex-col ${alignment}`}>
         {eyebrow ? (
           <span
-            className={`mb-3 inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] ${
+            className={`mb-3 inline-flex items-center text-[0.7rem] font-bold uppercase tracking-[0.18em] ${
               isDark ? 'text-brand-300' : 'text-brand-600'
             }`}
           >
-            <span className={`h-px w-6 ${isDark ? 'bg-brand-300/60' : 'bg-brand-500/60'}`} />
             {eyebrow}
           </span>
         ) : null}

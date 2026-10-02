@@ -55,6 +55,7 @@
   --animate-slide-in-left: slide-in-left 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   --animate-float: float 7s ease-in-out infinite;
   --animate-pulse-ring: pulse-ring 2.6s ease-out infinite;
+  --animate-marquee: marquee 42s linear infinite;
 }
 
 @keyframes fade-up {
@@ -117,6 +118,17 @@
   100% {
     transform: scale(1.5);
     opacity: 0;
+  }
+}
+
+/* Single-line testimonial marquee: the track is duplicated, so moving half
+   its width loops seamlessly from right to left. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -196,6 +208,24 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Softens the leading and trailing edges of the testimonial marquee. */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 4rem,
+      #000 calc(100% - 4rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 4rem,
+      #000 calc(100% - 4rem),
+      transparent
+    );
   }
 
   .grid-floor {

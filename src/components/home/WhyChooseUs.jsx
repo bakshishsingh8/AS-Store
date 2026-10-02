@@ -10,7 +10,7 @@ export function WhyChooseUs() {
       <div className="container-page">
         <Reveal>
           <SectionTitle
-            align="center"
+            align="left"
             eyebrow="Why AS Store"
             title="Shopping you can actually trust"
             description="We built AS Store around the things that frustrated us as lifters: unclear labels, slow shipping and support that never answers. Here is how we fixed them."

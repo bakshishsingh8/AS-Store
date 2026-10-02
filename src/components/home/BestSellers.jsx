@@ -49,9 +49,9 @@ export function BestSellers() {
             >
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900 p-4 transition duration-300 hover:-translate-y-1 hover:border-white/20">
                 <div className="flex items-start justify-between gap-3">
-                  <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500 font-display text-sm font-extrabold text-ink-950">
+                  {/* <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500 font-display text-sm font-extrabold text-ink-950">
                     #{index + 1}
-                  </span>
+                  </span> */}
                   <DiscountBadge percent={product.discount} />
                 </div>
 

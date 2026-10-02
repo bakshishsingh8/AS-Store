@@ -5,7 +5,7 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import Button from '../components/Button'
 import Reveal from '../components/Reveal'
 import SectionTitle from '../components/SectionTitle'
-import TestimonialCard from '../components/TestimonialCard'
+import TestimonialMarquee from '../components/TestimonialMarquee'
 import NewsletterBand from '../components/home/NewsletterBand'
 import { Icon } from '../components/Icons'
 
@@ -28,8 +28,7 @@ export function About() {
 
         <div className="container-page relative grid gap-10 py-16 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:py-24">
           <div>
-            <span className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-300">
-              <span className="h-px w-6 bg-brand-500/60" />
+            <span className="inline-flex items-center text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-300">
               Our story
             </span>
             <h1 className="mt-4 text-3xl font-extrabold leading-[1.08] sm:text-4xl lg:text-[3rem]">
@@ -139,13 +138,7 @@ export function About() {
           description="Real feedback from members of the AS Store community."
         />
 
-        <div className="mt-10 grid gap-4 sm:gap-5 md:grid-cols-3">
-          {testimonials.slice(0, 3).map((testimonial) => (
-            <Reveal key={testimonial.id}>
-              <TestimonialCard testimonial={testimonial} />
-            </Reveal>
-          ))}
-        </div>
+        <TestimonialMarquee items={testimonials} className="mt-10" />
       </div>
 
       {/* CTA */}

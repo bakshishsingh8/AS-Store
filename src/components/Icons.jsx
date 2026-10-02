@@ -296,26 +296,5 @@ export function SocialIcon({ name, size = 18, className = '' }) {
   )
 }
 
-/** AS Store monogram — the bolt tile used in the navbar, footer and auth pages. */
-export function LogoMark({ className = '' }) {
-  return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <rect width="40" height="40" rx="11" fill="#0A0D11" />
-      <rect
-        x="0.75"
-        y="0.75"
-        width="38.5"
-        height="38.5"
-        rx="10.25"
-        fill="none"
-        stroke="#FFFFFF"
-        strokeOpacity="0.16"
-        strokeWidth="1.5"
-      />
-      <path d="M22.9 8.4 12.3 22.3h5.4L14.5 31.6 25.9 16.8h-5.5z" fill="#3BC885" />
-    </svg>
-  )
-}
-
 export default Icon
 

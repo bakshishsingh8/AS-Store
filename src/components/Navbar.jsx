@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { navLinks, site } from '../data/site'
 import { categories } from '../data/categories'
 import { useShop } from '../context/ShopContext'
-import { Icon, LogoMark } from './Icons'
+import { Icon } from './Icons'
 import SearchBar from './SearchBar'
 import Button from './Button'
 import { useBodyScrollLock, useEscapeKey } from '../hooks/useMediaQuery'
@@ -156,8 +156,7 @@ function MobileDrawer({ open, onClose }) {
 
       <div className="absolute inset-y-0 right-0 flex w-[min(21rem,88vw)] flex-col bg-white shadow-2xl animate-slide-in-right">
         <div className="flex items-center justify-between border-b border-ink-100 px-4 py-3.5">
-          <Link to="/" onClick={onClose} className="flex items-center gap-2.5">
-            <LogoMark className="h-8 w-8" />
+          <Link to="/" onClick={onClose} className="flex items-center">
             <span className="font-display text-[0.98rem] font-extrabold tracking-tight text-ink-950">
               AS STORE
             </span>
@@ -356,8 +355,7 @@ export function Navbar() {
             <Icon name="menu" size={22} />
           </button>
 
-          <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="AS Store home">
-            <LogoMark className="h-9 w-9 lg:h-10 lg:w-10" />
+          <Link to="/" className="flex shrink-0 items-center" aria-label="AS Store home">
             <span className="flex flex-col leading-none">
               <span className="font-display text-[1.02rem] font-extrabold tracking-tight text-ink-950 lg:text-[1.12rem]">
                 AS STORE

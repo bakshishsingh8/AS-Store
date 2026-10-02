@@ -131,18 +131,18 @@ export function Hero() {
             </div>
           </div>
 
-          <Link
+          {/* <Link
             to={`/product/${creatine.id}`}
             className="absolute -bottom-6 -left-4 hidden w-36 rounded-2xl border border-white/12 bg-ink-900/95 p-3 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 sm:block lg:-left-10"
           >
-            <div className="overflow-hidden rounded-xl bg-white">
+            <div className="overflow-hidden rounded-xl bg-red-500">
               <ProductImage image={creatine.image} className="h-full w-full" />
             </div>
             <p className="mt-2 truncate text-[0.72rem] font-semibold text-white/80">
               {creatine.brand}
             </p>
             <p className="text-[0.72rem] font-bold text-brand-300">{formatPrice(creatine.price)}</p>
-          </Link>
+          </Link> */}
 
           <Link
             to={`/product/${shaker.id}`}
@@ -157,10 +157,10 @@ export function Hero() {
             <p className="text-[0.72rem] font-bold text-brand-300">{formatPrice(shaker.price)}</p>
           </Link>
 
-          <div className="absolute -bottom-4 right-4 rounded-2xl bg-brand-500 px-4 py-3 text-ink-950 shadow-brand sm:right-8">
+          {/* <div className="absolute -bottom-4 right-4 rounded-2xl bg-brand-500 px-4 py-3 text-ink-950 shadow-brand sm:right-8">
             <p className="font-display text-2xl leading-none font-extrabold">30%</p>
             <p className="text-[0.64rem] font-bold uppercase tracking-[0.1em]">Off selected</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -42,8 +42,7 @@ export function LifestyleSection() {
 
       <div className="relative container-page grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
         <div>
-          <span className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-400">
-            <span className="h-px w-6 bg-brand-400/60" />
+          <span className="inline-flex items-center text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-400">
             More than a shop
           </span>
 

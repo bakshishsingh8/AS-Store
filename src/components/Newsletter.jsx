@@ -52,7 +52,7 @@ export function Newsletter({ tone = 'light', className = '', buttonLabel = 'Subs
   return (
     <form onSubmit={handleSubmit} className={className} noValidate>
       <div className="flex flex-col gap-2.5 sm:flex-row">
-        <div className="relative flex-1">
+        {/* <div className="relative flex-1">
           <Icon
             name="mail"
             size={17}
@@ -80,7 +80,7 @@ export function Newsletter({ tone = 'light', className = '', buttonLabel = 'Subs
 
         <Button type="submit" size="md" className="shrink-0 sm:w-auto" variant={isDark ? 'amber' : 'primary'}>
           {buttonLabel}
-        </Button>
+        </Button> */}
       </div>
 
       {status === 'error' ? (
@@ -89,7 +89,7 @@ export function Newsletter({ tone = 'light', className = '', buttonLabel = 'Subs
         </p>
       ) : (
         <p className={`mt-2 text-[0.78rem] ${isDark ? 'text-white/50' : 'text-ink-500'}`}>
-          No spam, ever. Unsubscribe with one click.
+          {/* No spam, ever. Unsubscribe with one click. */}
         </p>
       )}
     </form>

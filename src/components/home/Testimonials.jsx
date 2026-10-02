@@ -1,5 +1,5 @@
 import { testimonials } from '../../data/testimonials'
-import TestimonialCard from '../TestimonialCard'
+import TestimonialMarquee from '../TestimonialMarquee'
 import SectionTitle from '../SectionTitle'
 import Reveal from '../Reveal'
 import { Icon, StarIcon } from '../Icons'
@@ -19,14 +19,14 @@ export function Testimonials() {
       <div className="container-page">
         <Reveal>
           <SectionTitle
-            align="center"
+            align="left"
             eyebrow="Customer reviews"
             title="Thousands of lifters, one verdict"
             description="Verified feedback from customers who ordered, trained and came back for more."
           />
         </Reveal>
 
-        <Reveal className="mx-auto mt-8 max-w-3xl">
+        {/* <Reveal className="mx-auto mt-8 max-w-3xl">
           <div className="flex flex-col items-center gap-6 rounded-2xl border border-ink-100 bg-white px-6 py-6 shadow-card sm:flex-row sm:justify-between">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1" aria-hidden="true">
@@ -58,15 +58,9 @@ export function Testimonials() {
               ))}
             </dl>
           </div>
-        </Reveal>
+        </Reveal> */}
 
-        <div className="mt-10 grid gap-4 sm:gap-5 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <Reveal key={testimonial.id} delay={index * 60}>
-              <TestimonialCard testimonial={testimonial} className="h-full" />
-            </Reveal>
-          ))}
-        </div>
+        <TestimonialMarquee items={testimonials} className="mt-10" />
 
         <Reveal className="mt-10 flex justify-center">
           <Button

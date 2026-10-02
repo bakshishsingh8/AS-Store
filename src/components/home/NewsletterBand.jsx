@@ -22,8 +22,7 @@ export function NewsletterBand() {
 
             <div className="relative grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
               <div>
-                <span className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-600">
-                  <span className="h-px w-6 bg-brand-500/60" />
+                <span className="inline-flex items-center text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-600">
                   Newsletter
                 </span>
                 <h2 className="mt-3 text-2xl font-bold text-ink-900 sm:text-3xl lg:text-[2.15rem]">
@@ -46,7 +45,7 @@ export function NewsletterBand() {
                 </ul>
               </div>
 
-              <div className="rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-8">
+              {/* <div className="rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-8">
                 <h3 className="font-display text-lg font-bold text-ink-900">
                   Subscribe in one click
                 </h3>
@@ -54,7 +53,7 @@ export function NewsletterBand() {
                   No spam. Unsubscribe whenever you like.
                 </p>
                 <Newsletter className="mt-5" buttonLabel="Subscribe" />
-              </div>
+              </div> */}
             </div>
           </div>
         </Reveal>

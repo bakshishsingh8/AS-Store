@@ -49,8 +49,7 @@ export function Login() {
       <div className="container-page grid gap-10 py-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-20">
         {/* Form */}
         <div className="mx-auto w-full max-w-md">
-          <span className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-600">
-            <span className="h-px w-6 bg-brand-500/60" />
+          <span className="inline-flex items-center text-[0.7rem] font-bold uppercase tracking-[0.18em] text-brand-600">
             Account
           </span>
           <h1 className="mt-4 text-3xl font-extrabold text-ink-900">Welcome back</h1>
