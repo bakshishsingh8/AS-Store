@@ -1,0 +1,5 @@
+﻿C:\Projects\AS Store\src\App.jsx
+C:\Projects\AS Store\src\index.css
+C:\Projects\AS Store\src\main.jsx
+C:\Projects\AS Store\public\favicon.svg
+ALLDONE
