@@ -6,7 +6,7 @@ export function TestimonialCard({ testimonial, className = '' }) {
 
   return (
     <figure
-      className={`flex h-full flex-col rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover ${className}`}
+      className={`flex h-full flex-col rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 ${className}`}
     >
       <div className="flex items-center gap-1" aria-hidden="true">
         {[0, 1, 2, 3, 4].map((index) => (

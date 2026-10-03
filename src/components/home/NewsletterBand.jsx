@@ -1,6 +1,10 @@
-import Newsletter from '../Newsletter'
 import Reveal from '../Reveal'
+import Button from '../Button'
+import ProductImage from '../ProductImage'
 import { Icon } from '../Icons'
+import { getProduct } from '../../data/products'
+import { promoCodes } from '../../data/site'
+import { formatPrice } from '../../utils/format'
 
 const PERKS = [
   { icon: 'gift', label: '10% off your first order' },
@@ -10,6 +14,9 @@ const PERKS = [
 
 /** Newsletter capture band shown near the end of the home page. */
 export function NewsletterBand() {
+  const deal = getProduct('p-gold-whey')
+  const welcome = promoCodes[0]
+
   return (
     <section className="bg-white py-16 lg:py-20">
       <div className="container-page">
@@ -45,15 +52,59 @@ export function NewsletterBand() {
                 </ul>
               </div>
 
-              {/* <div className="rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-8">
-                <h3 className="font-display text-lg font-bold text-ink-900">
-                  Subscribe in one click
-                </h3>
-                <p className="mt-1.5 text-[0.88rem] text-ink-500">
-                  No spam. Unsubscribe whenever you like.
-                </p>
-                <Newsletter className="mt-5" buttonLabel="Subscribe" />
-              </div> */}
+              {/* Promotional visual — welcome offer card (large screens only) */}
+              <div className="relative mx-auto hidden w-full max-w-md lg:block lg:max-w-none">
+                <div
+                  className="absolute -inset-5 rounded-[2.5rem] bg-brand-500/15 blur-3xl"
+                  aria-hidden="true"
+                />
+
+                <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-950 p-6 text-white shadow-brand sm:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-amber-300">
+                        <Icon name="gift" size={13} />
+                        Welcome offer
+                      </span>
+                      <p className="mt-4 font-display text-3xl leading-[1.1] font-extrabold sm:text-[2.1rem]">
+                        {welcome.value}% off your first order
+                      </p>
+                    </div>
+
+                    <span className="grid h-16 w-16 shrink-0 rotate-6 place-items-center rounded-2xl bg-amber-400 font-display text-lg font-extrabold text-ink-950">
+                      {welcome.value}%
+                    </span>
+                  </div>
+
+                  <div className="relative mt-5 overflow-hidden rounded-2xl bg-white">
+                    <ProductImage image={deal.image} title={deal.name} className="h-full w-full" />
+                    <span className="absolute left-3 top-3 rounded-full bg-rose-600 px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.1em] text-white">
+                      Save {formatPrice(deal.originalPrice - deal.price)}
+                    </span>
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="truncate text-[0.9rem] font-semibold text-white">{deal.name}</p>
+                      <p className="mt-0.5 text-[0.78rem] text-white/60">
+                        Use code{' '}
+                        <span className="rounded border border-dashed border-brand-400/60 px-1.5 py-0.5 font-bold text-brand-300">
+                          {welcome.code}
+                        </span>{' '}
+                        at checkout
+                      </p>
+                    </div>
+                    <Button
+                      to="/offers"
+                      size="sm"
+                      variant="amber"
+                      iconRight={<Icon name="arrowRight" size={14} />}
+                    >
+                      Grab it
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Reveal>

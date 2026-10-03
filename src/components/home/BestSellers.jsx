@@ -40,12 +40,8 @@ export function BestSellers() {
         </Reveal>
 
         <div className="no-scrollbar -mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
-          {items.map((product, index) => (
-            <Reveal
-              key={product.id}
-              delay={index * 50}
-              className="w-[17rem] shrink-0 snap-start sm:w-[18rem]"
-            >
+          {items.map((product) => (
+            <div key={product.id} className="w-[17rem] shrink-0 snap-start sm:w-[18rem]">
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900 p-4 transition duration-300 hover:-translate-y-1 hover:border-white/20">
                 <Link
                   to={`/product/${product.id}`}
@@ -90,7 +86,7 @@ export function BestSellers() {
                   </Button>
                 </div>
               </article>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
