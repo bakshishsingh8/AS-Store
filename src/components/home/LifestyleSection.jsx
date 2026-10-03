@@ -82,7 +82,7 @@ export function LifestyleSection() {
             </Button>
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 text-[0.92rem] font-semibold text-white/70 transition hover:text-white"
+              className="inline-flex items-center border justify-center border-white/10  h-14  p-6 rounded-full  gap-2 text-[0.92rem] font-semibold text-white/70 transition hover:text-white"
             >
               Read our story
               <Icon name="chevronRight" size={15} />

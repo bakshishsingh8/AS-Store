@@ -81,7 +81,7 @@ export function PromoBanner() {
                   <Button to="/offers" size="lg" iconRight={<Icon name="arrowRight" size={18} />}>
                     Shop the Sale
                   </Button>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-brand-400/40 bg-brand-400/5 px-4 py-3 text-[0.85rem] font-semibold text-brand-300">
+                  <span className="inline-flex items-center justify-center gap-2 rounded-full border border-dashed border-brand-400/40 bg-brand-400/5 px-4 py-3 text-[0.85rem] font-semibold text-brand-300">
                     <Icon name="tag" size={16} />
                     Code: ASFIT10
                   </span>

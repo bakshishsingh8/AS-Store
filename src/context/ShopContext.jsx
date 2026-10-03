@@ -237,6 +237,15 @@ export function ShopProvider({ children }) {
 
   const removePromo = useCallback(() => setPromoInput(null), [setPromoInput])
 
+  /* -------------------------------- ui -------------------------------- */
+  /* Stable identities matter: the Navbar closes transient UI from an effect
+     keyed on these callbacks, so a fresh identity on every drawer toggle
+     would make that effect fire and immediately re-close the menu. */
+  const openCart = useCallback(() => setCartOpen(true), [])
+  const closeCart = useCallback(() => setCartOpen(false), [])
+  const openMobileNav = useCallback(() => setMobileNavOpen(true), [])
+  const closeMobileNav = useCallback(() => setMobileNavOpen(false), [])
+
   /* ------------------------------- value ------------------------------ */
   const value = useMemo(
     () => ({
@@ -276,11 +285,11 @@ export function ShopProvider({ children }) {
       freeShippingEarned,
       // ui
       cartOpen,
-      openCart: () => setCartOpen(true),
-      closeCart: () => setCartOpen(false),
+      openCart,
+      closeCart,
       mobileNavOpen,
-      openMobileNav: () => setMobileNavOpen(true),
-      closeMobileNav: () => setMobileNavOpen(false),
+      openMobileNav,
+      closeMobileNav,
       // feedback
       toasts,
       pushToast,
@@ -316,7 +325,11 @@ export function ShopProvider({ children }) {
       amountToFreeShipping,
       freeShippingEarned,
       cartOpen,
+      openCart,
+      closeCart,
       mobileNavOpen,
+      openMobileNav,
+      closeMobileNav,
       toasts,
       pushToast,
       dismissToast,

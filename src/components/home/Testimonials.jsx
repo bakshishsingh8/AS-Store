@@ -2,8 +2,7 @@ import { testimonials } from '../../data/testimonials'
 import TestimonialMarquee from '../TestimonialMarquee'
 import SectionTitle from '../SectionTitle'
 import Reveal from '../Reveal'
-import { Icon, StarIcon } from '../Icons'
-import Button from '../Button'
+import { StarIcon } from '../Icons'
 import { formatCount } from '../../utils/format'
 
 const SUMMARY = [
@@ -61,17 +60,6 @@ export function Testimonials() {
         </Reveal> */}
 
         <TestimonialMarquee items={testimonials} className="mt-10" />
-
-        <Reveal className="mt-10 flex justify-center">
-          <Button
-            to="/shop"
-            variant="outline"
-            iconLeft={<Icon name="verified" size={16} />}
-            iconRight={<Icon name="arrowRight" size={16} />}
-          >
-            Join 48,000+ customers
-          </Button>
-        </Reveal>
       </div>
     </section>
   )
